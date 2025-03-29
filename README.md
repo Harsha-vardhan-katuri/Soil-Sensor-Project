@@ -95,19 +95,7 @@ This project successfully evaluated the **7-in-1 soil sensor** using two methods
 ✔ **Automatic Data Decoding** – Directly displayed in **human-readable format**.  
 ✔ **Scalability** – Can support **multiple sensors**.  
 ❌ **Lower Accuracy** – Possible **signal interference**.  
-❌ **Requires Additional Programming** – Needs **firmware development**.  
-
-## 🚀 Future Scope  
-
-### 📌 Enhancements for **Method 1 (RS485 to USB with Cool Term)**  
-- **Automated Data Decoding** – Use a script to convert **hex data to human-readable values**.  
-- **Wireless Data Transmission** – Add **Wi-Fi/Bluetooth** for **remote monitoring**.  
-- **Multi-Sensor Compatibility** – Design an **interfacing hub** for **multiple sensors**.  
-
-### 📌 Enhancements for **Method 2 (RS485 to TTL with Arduino Uno)**  
-- **Improve Accuracy** – Use **signal filtering** techniques.  
-- **Upgrade to ESP32/Raspberry Pi** – For **scalability & real-time applications**.  
-- **Cloud Integration** – Send data to **ThingSpeak/AWS IoT** for remote monitoring.  
+❌ **Requires Additional Programming** – Needs **firmware development**.   
 
 ## 📝 Author  
 **Harsha Vardhan Katuri**  
