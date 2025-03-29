@@ -49,7 +49,7 @@ void loop() {
     Serial.print("Electrical Conductivity: "); Serial.print(ec); Serial.println(" µS/cm");
     Serial.print("Soil pH: "); Serial.println(pH / 100.0);  
 
-    delay(500);
+    delay(200);
 }
 
 // Function to read Modbus data (single byte response)
