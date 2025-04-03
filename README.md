@@ -24,8 +24,8 @@ The primary goals of this project are to:
 - **Soil Sample** (For testing)  
 
 ## 💻 Software Requirements  
-- **Arduino IDE** (For programming and serial monitoring)  
-- **Cool Term Software** (For RS485 to USB communication)  
+- **Arduino IDE** (For programming and serial monitoring -method 2)  
+- **Cool Term Software** (For RS485 to USB communication -method 1)  
 
 ## 📋 Methodology  
 
