@@ -14,7 +14,7 @@ const uint8_t ecRequest[]        = {0x01, 0x03, 0x00, 0x15, 0x00, 0x01, 0x95, 0x
 const uint8_t pHRequest[]        = {0x01, 0x03, 0x00, 0x06, 0x00, 0x01, 0x64, 0x0B};
 
 byte response[7];  // Buffer for Modbus response
-SoftwareSerial mod(3, 4); // RS485 communication (RX=3, TX=4)
+SoftwareSerial mod(3, 4); // RS485 communication (R0=3, DI=4)
 
 void setup() {
     Serial.begin(9600);
