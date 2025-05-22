@@ -2,7 +2,7 @@
 #include <SoftwareSerial.h>
 
 // RS485 Modbus control pins
-#define RE 10  
+#define RE 10   
 #define DE 9  
 
 const uint8_t nitrogenRequest[]  = {0x01, 0x03, 0x00, 0x1E, 0x00, 0x01, 0xE4, 0x0C};
