@@ -1,108 +1,95 @@
-# Real-Time Soil Quality Monitoring System  
+# LoRa-Enabled Soil Health Monitoring System using RS485 and ESP32
 
-## 📌 Introduction  
-Soil analysis is crucial for optimizing agricultural productivity and ensuring sustainable farming practices. Accurate monitoring of key soil parameters enables informed decision-making for better crop management.  
+This project implements a smart agricultural monitoring system that measures multiple soil parameters using an RS485 Modbus-based sensor and transmits the data wirelessly using LoRa technology. The system is built around the ESP32 microcontroller and is designed for deployment in remote field conditions where long-range, low-power communication is essential.
 
-This project implements a **7-in-1 Soil Sensor** using two different methods:  
-- **Method 1:** RS485-to-USB converter with **Cool Term** software.  
-- **Method 2:** RS485-to-TTL converter with **Arduino Uno** and **Arduino IDE**.  
+## 🌱 Features
 
-## 🎯 Objective  
-The primary goals of this project are to:  
-- Implement and evaluate two different methods for soil quality measurement.  
-- Analyze key soil parameters such as **pH, Electrical Conductivity (EC), NPK (Nitrogen, Phosphorus, Potassium), Temperature, and Moisture**.  
-- Compare the accuracy, efficiency, and response time of both methods to determine the most effective approach.  
-- Identify the best method for **real-time agricultural applications**.  
-
-## 🛠️ Hardware Requirements  
-- **7-in-1 Soil Sensor** (Measures pH, EC, NPK, Temperature, and Moisture)  
-- **RS485-to-USB Converter** (For direct PC communication)  
-- **RS485-to-TTL Converter** (For microcontroller interfacing)  
-- **Arduino Uno** (Microcontroller for Method 2)  
-- **UTP1306 Power Supply** (12V-24V input for the sensor)  
-- **Multimeter** (For testing connections)  
-- **Soil Sample** (For testing)  
-
-## 💻 Software Requirements  
-- **Arduino IDE** (For programming and serial monitoring -method 2)  
-- **Cool Term Software** (For RS485 to USB communication -method 1)  
-
-## 📋 Methodology  
-
-### 🔹 Method 1: RS485 to USB with Cool Term Software  
-- The **7-in-1 soil sensor** is connected to an **RS485-to-USB converter**.  
-- The converter allows **direct data transmission** to a computer.  
-- **Cool Term software** is used to **send query packets** and retrieve sensor data.  
-- No microcontroller is required.  
-
-### 🔹 Method 2: RS485 to TTL with Arduino Uno and Arduino IDE  
-- The **7-in-1 soil sensor** is connected to an **RS485-to-TTL converter**.  
-- The **TTL converter** interfaces with the **Arduino Uno**.  
-- The **Arduino Uno** processes the sensor data and sends it to the **Arduino IDE serial monitor** for real-time display.  
-- Suitable for **embedded systems and IoT applications**.  
-
-
-## ⚙️ Working Principles  
-
-### ✅ Method 1 (RS485 to USB with Cool Term)  
-1. Power the **7-in-1 soil sensor** with a **12V DC power supply**.  
-2. Connect the **RS485 A & B terminals** to the **RS485-to-USB converter**.  
-3. Plug the **USB converter** into the **computer**.  
-4. Open **Cool Term software**, set the **baud rate and COM port**.  
-5. Send a **hexadecimal query command** to request data from the sensor.  
-6. The sensor **sends back** real-time data for analysis.  
-
-### ✅ Method 2 (RS485 to TTL with Arduino Uno)  
-1. Power the **7-in-1 soil sensor** using a **12V DC power supply**.  
-2. Connect the **RS485 A & B terminals** to the **RS485-to-TTL module**.  
-3. Connect the **TTL module** to the **Arduino Uno** as follows:  
-   - **RX (Receive) → Arduino Digital Pin**  
-   - **TX (Transmit) → Arduino Digital Pin**  
-4. Upload the **RS485 communication code** to the Arduino.  
-5. The **Arduino requests** data from the sensor.  
-6. The **sensor sends the response**, which is displayed on the **Arduino IDE Serial Monitor**.  
-
-## 📊 Results  
-
-| Parameter       | Method 1 (RS485-USB) | Method 2 (RS485-TTL) |
-|----------------|---------------------|---------------------|
-| **Nitrogen**   | 38 mg/kg             | 37.83 mg/kg         |
-| **Phosphorus** | 53 mg/kg             | 53 mg/kg            |
-| **Potassium**  | 106.73 mg/kg         | 106 mg/kg           |
-| **pH**         | 7                    | 6.4                 |
-| **Temperature**| 25.2°C               | 25.2°C              |
-| **Moisture**   | 11.6%                | 10.8%               |
-| **EC**         | 536 µS/cm            | 532 µS/cm           |
-
-## ✅ Conclusion  
-
-This project successfully evaluated the **7-in-1 soil sensor** using two methods for **measuring soil quality parameters**.  
-
-- **Method 1 (RS485 to USB)** provides **higher accuracy** due to **direct data retrieval**.  
-- **Method 2 (RS485 to TTL with Arduino Uno)** offers **better flexibility** for **embedded systems** and **IoT applications**.  
-
-## 📌 Pros & Cons  
-
-### ✅ Method 1 (RS485 to USB with Cool Term)  
-✔ **High Accuracy** – Direct data retrieval ensures minimal noise.  
-✔ **Easy Setup** – No microcontroller required.  
-✔ **Real-Time Monitoring** – Instant data observation.  
-❌ **Requires Manual Data Decoding** – Data is in **hexadecimal** format.  
-❌ **Limited Portability** – Requires a **PC connection**.  
-
-### ✅ Method 2 (RS485 to TTL with Arduino Uno)  
-✔ **Embedded System Integration** – Works with **IoT & automation systems**.  
-✔ **Automatic Data Decoding** – Directly displayed in **human-readable format**.  
-✔ **Scalability** – Can support **multiple sensors**.  
-❌ **Lower Accuracy** – Possible **signal interference**.  
-❌ **Requires Additional Programming** – Needs **firmware development**.   
-
-## 📝 Author  
-**Harsha Vardhan Katuri**  
-
-## 🔗 License  
-This project is licensed under the **MIT License**.  
+* 📡 Long-range wireless data transmission via LoRa (433 MHz)
+* 🦢 Real-time soil data acquisition: Nitrogen (N), Phosphorus (P), Potassium (K), pH, EC, Moisture, and Temperature
+* 🔁 RS485 (Modbus RTU) communication between ESP32 and soil sensor
+* 🛠️ Efficient and modular firmware structure using Arduino framework
+* ⚡ Optimized for low power and outdoor deployments
 
 ---
 
+## 🔧 Hardware Components
 
+| Component                | Description                               |
+| ------------------------ | ----------------------------------------- |
+| ESP32 Dev Module         | Microcontroller for sensor + LoRa control |
+| Soil Sensor              | Multi-parameter sensor (Modbus RTU)       |
+| LoRa SX1278 Module       | Transceiver for long-range communication  |
+| RS485                    | Handles Modbus communication              |
+| Jumper wires, Breadboard | Prototyping connections                   |
+
+
+## ⚙️ Setup Instructions
+
+### 1. Transmitter (ESP32 + RS485 Soil Sensor + LoRa)
+
+* Connect RS485 sensor to ESP32 using UART pins.
+* Connect LoRa module via SPI (SCK, MISO, MOSI, CS, RST, DIO0).
+* Flash the `transmitter_code` using Arduino IDE or PlatformIO.
+* Power up ESP32. Sensor values will be read and transmitted periodically.
+
+### 2. Receiver (ESP32 or LoRa Node)
+
+* Connect LoRa module to a second ESP32 or compatible MCU.
+* Flash the `receiver_code` to read incoming LoRa packets and print via Serial Monitor.
+
+---
+
+## 📊 Sample Output
+
+### Transmitter Side
+
+```
+Reading Soil and NPK Values...
+Nitrogen: 55 mg/kg
+Phosphorus: 24 mg/kg
+Potassium: 87 mg/kg
+Soil Moisture: 31.2 %
+Soil Temp: 26.7 °C
+EC: 486 µS/cm
+pH: 6.8
+LoRa packet sent!
+```
+
+### Receiver Side
+
+```
+Booting Receiver...
+LoRa Receiver Ready.
+Received: N:55,P:24,K:87,M:31.2,T:26.7,EC:486,pH:6.8
+```
+
+---
+
+## 🔐 Future Improvements
+
+* Add SD card logging
+* Integrate ThingSpeak or Blynk for cloud monitoring
+* Use deep sleep mode for better power efficiency
+* Multi-node scheduling for sensor networks
+
+---
+
+## 🧠 Skills & Technologies Used
+
+* Embedded C / Arduino
+* RS485 (Modbus RTU)
+* LoRa SX1278
+* SPI, UART communication
+* ESP32 development
+
+---
+
+## 📜 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## 🤝 Acknowledgements
+
+Made with 🌿 for smart farming applications and environmental sensing.
